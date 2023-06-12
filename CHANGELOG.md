@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0-2](https://github.com/nodecg/use-nodecg/compare/v0.4.1-2...v1.0.0-2) (2023-06-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **package:** It is now disallowed to import `use-nodecg/esm` or `use-nodecg/cjs`
+
+### Features
+
+* **package:** add "exports" to package.json ([#261](https://github.com/nodecg/use-nodecg/issues/261)) ([982680a](https://github.com/nodecg/use-nodecg/commit/982680ab739953cefaa84d4266188ed2128941f2))
+* upgrade to nodecg v2 ([#248](https://github.com/nodecg/use-nodecg/issues/248)) ([1af2348](https://github.com/nodecg/use-nodecg/commit/1af234840f2662b0ce92a28b76a97faeb1ce281f))
+
 ### [0.4.1-2](https://github.com/Hoishin/use-nodecg/compare/v0.4.1-1...v0.4.1-2) (2023-03-15)
 
 ### Bug Fixes
