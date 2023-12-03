@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {klona as clone} from 'klona/json';
+import {useEffect, useState, useReducer} from 'react';
+// import { klona as clone } from 'klona/json';
 import type NodeCG from '@nodecg/types';
 
 /**
@@ -16,6 +16,7 @@ export const useReplicant = <T>(
 	options?: NodeCG.Replicant.Options<T> & {namespace?: string},
 ): [T | undefined, (newValue: T) => void] => {
 	const [value, updateValue] = useState<T | undefined>(initialValue);
+	const [, forceUpdate] = useReducer((x: number) => x + 1, 0);
 
 	const replicantOptions =
 		options &&
@@ -44,11 +45,12 @@ export const useReplicant = <T>(
 	useEffect(() => {
 		const changeHandler = (newValue: T | undefined): void => {
 			updateValue((oldValue) => {
-				if (newValue !== oldValue) {
-					return newValue;
+				if (newValue === oldValue) {
+					forceUpdate();
 				}
 				// replicant.value has always the same reference. Cloning to cause re-rendering
-				return clone(newValue);
+				// return clone(newValue);
+				return newValue;
 			});
 		};
 		replicant.on('change', changeHandler);
